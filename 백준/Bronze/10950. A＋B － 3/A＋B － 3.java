@@ -7,12 +7,16 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		
 		int x = scanner.nextInt();
-		int y, z;
+		int arr[] = new int[x];
 		
-		for(int i = 1; i <= x; i++) {
-			y = scanner.nextInt();
-			z = scanner.nextInt();
-			System.out.println(y+z);
+		for(int i = 0; i < x; i++) {
+			int y = scanner.nextInt();
+			int z = scanner.nextInt();
+			arr[i] = y + z;
+		}
+		
+		for(int a : arr) {
+			System.out.println(a);
 		}
 	}
 }

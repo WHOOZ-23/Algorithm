@@ -9,8 +9,10 @@ public class Main {
 		int x = scanner.nextInt();
 		int y;
 		
-		for(y = 1; y <= 9; y++) {
-			System.out.println(x + " * " + y + " = " + (x*y));
+		if(1 <= x && x <= 9) {
+			for(y = 1; y < 10; y++) {
+				System.out.println(x + " * " + y + " = " + (x*y));
+			}			
 		}
 	}
 }

@@ -8,7 +8,11 @@ public class Main {
 		String str = scanner.next();
 		int i = scanner.nextInt();
 		
-		System.out.println(str.charAt(i-1));
+		if(str.length() <= 1000) {
+			if(1<=i && i<=str.length()) {
+				System.out.println(str.charAt(i-1));				
+			}
+		}
 		
 		scanner.close();
 	}

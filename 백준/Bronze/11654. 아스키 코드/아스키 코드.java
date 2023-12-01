@@ -1,14 +1,9 @@
-import java.util.Scanner;
+import java.io.IOException;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		
-		int str = scanner.next().charAt(0);
-		
+	public static void main(String[] args) throws IOException {
+		int str = System.in.read();
 		System.out.println(str);
-		
-		scanner.close();
 	}
 }

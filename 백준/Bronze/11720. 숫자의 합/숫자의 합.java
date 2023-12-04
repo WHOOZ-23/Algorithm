@@ -6,17 +6,17 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		
 		int N = scanner.nextInt();
-		int sum = 0;
 		
 		if(1<=N && N<=100) {
 			String num = scanner.next();
 			scanner.close();
+			char[] arr = num.toCharArray();
 			
-			for(int j=0; j<N; j++) {
-				sum += num.charAt(j)-'0';				
+			int sum = 0;
+			for(int i=0; i<N; i++) {
+				sum += arr[i]-'0';
 			}
 			System.out.println(sum);
-		}
-		
+		}		
 	}
 }

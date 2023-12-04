@@ -18,8 +18,8 @@ public class Main {
 			for(int j=0; j<S.length(); j++) {
 				char ch = S.charAt(j);
 				
-				if(arr[ch-97] == -1) {
-					arr[ch-97] = j;
+				if(arr[ch-'a'] == -1) {
+					arr[ch-'a'] = j;
 				}
 			}
 			

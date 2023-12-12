@@ -12,21 +12,21 @@ public class Main {
 		if(2<=str.length() && str.length()<=15) {
 			for(int i=0; i<str.length(); i++) {
 				char ch = str.charAt(i);
-				if(ch=='A' || ch=='B' || ch=='C') {
+				if(65<=ch && ch<=67) {
 					second += 3;
-				} else if(ch=='D' || ch=='E' || ch=='F') {
+				} else if(68<=ch && ch<=70) {
 					second += 4;
-				} else if(ch=='G' || ch=='H' || ch=='I') {
+				} else if(71<=ch && ch<=73) {
 					second += 5;
-				} else if(ch=='J' || ch=='K' || ch=='L') {
+				} else if(74<=ch && ch<=76) {
 					second += 6;
-				} else if(ch=='M' || ch=='N' || ch=='O') {
+				} else if(77<=ch && ch<=79) {
 					second += 7;
-				} else if(ch=='P' || ch=='Q' || ch=='R' || ch=='S') {
+				} else if(80<=ch && ch<=83) {
 					second += 8;
-				} else if(ch=='T' || ch=='U' || ch=='V') {
+				} else if(84<=ch && ch<=86) {
 					second += 9;
-				} else if(ch=='W' || ch=='X' || ch=='Y' || ch=='Z') {
+				} else if(87<=ch && ch<=90) {
 					second += 10;
 				}
 			}

@@ -9,10 +9,9 @@ public class Main {
 		scanner.close();
 		
 		String palindrome = "";
+		StringBuilder sb = new StringBuilder();
 		
-		for(int i=str.length()-1; i>=0; i--) {
-			palindrome += str.charAt(i);
-		}
+		palindrome = sb.append(str).reverse().toString();
 		
 		System.out.println(str.equals(palindrome) ? 1 : 0);
 	}

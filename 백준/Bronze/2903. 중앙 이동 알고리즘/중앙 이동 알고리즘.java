@@ -11,9 +11,9 @@ public class Main {
 			int x = 2;
 			
 			for(int i=0; i<N; i++) {
-				x = 2*x - 1;
+				x += (int)Math.pow(2, i);
 			}
-			System.out.println((int)Math.pow(x, 2));
+			System.out.println(x*x);
 		}
 		scanner.close();
 	}

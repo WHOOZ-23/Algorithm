@@ -13,11 +13,11 @@ public class Main {
 				x += i;
 				
 				if(N==1) {
-					System.out.print(1);
+					System.out.println(1);
 				}
 				
 				if(6*x+2<=N && N<=6*(x+(i+1))+1) {
-					System.out.print(i+2);
+					System.out.println(i+2);
 					break;
 				} 
 			}

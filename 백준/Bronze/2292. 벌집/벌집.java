@@ -8,19 +8,14 @@ public class Main {
 		int N = scanner.nextInt();
 		
 		if(1<=N && N<=1000000000) {
-			int x = 0;
-			for(int i=0; i<N/6+1; i++) {
-				x += i;
-				
-				if(N==1) {
-					System.out.println(1);
-				}
-				
-				if(6*x+2<=N && N<=6*(x+(i+1))+1) {
-					System.out.println(i+2);
-					break;
-				} 
+			
+			int h = 1, cnt = 1;
+			
+			while(N > h) {
+				h = h + (6 * cnt);
+				cnt++;
 			}
+			System.out.println(cnt);
 		}
 		scanner.close();
 	}

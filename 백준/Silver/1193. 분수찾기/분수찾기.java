@@ -11,23 +11,23 @@ public class Main {
 		int a = 0;
 		int b = 0;
 		
-		while(X > i) {
-			X -= i;
-			i++;
+		if(i<=X && X<=10000000) {
+			while(X > i) {
+				X -= i;
+				i++;
+			}
+			
+			if(i%2 == 0) {
+				a = X;
+				b = i - X + 1;
+			}
+			
+			if(i%2 == 1) {
+				a = i - X + 1;
+				b = X;
+			}
+			System.out.println(a + "/" + b);
 		}
-		
-		if(i%2 == 0) {
-			a = X;
-			b = i - X + 1;
-		}
-		
-		if(i%2 == 1) {
-			a = i - X + 1;
-			b = X;
-		}
-		
-		System.out.println(a + "/" + b);
-		
 		scanner.close();
 	}
 }

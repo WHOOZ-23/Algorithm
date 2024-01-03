@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -8,24 +10,19 @@ public class Main {
 		int N = scanner.nextInt();
 		int K = scanner.nextInt();
 		
-		int[] arr = new int[N+1];
-		int count = 0;
+		List<Integer> arr = new ArrayList<>();
 		
 		if(1<=N && N<=10000) {
 			for(int i=1; i<=N; i++) {
 				if(N%i==0) {
-					arr[i] = 1;
-					count++;
-				}
-				
-				if(K == count) {
-					System.out.println(i);
-					break;
+					arr.add(i);
 				}
 			}
 			
-			if(K > count) {
+			if(K>arr.size()) {
 				System.out.println("0");
+			} else {
+				System.out.println(arr.get(K-1));
 			}
 		}
 		scanner.close();

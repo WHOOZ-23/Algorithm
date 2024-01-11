@@ -1,3 +1,5 @@
 function solution(numbers) {
-    return numbers.map(x => x*2);
+    let arr = [];
+    numbers.forEach((x) => arr.push(x*2));
+    return arr;
 }

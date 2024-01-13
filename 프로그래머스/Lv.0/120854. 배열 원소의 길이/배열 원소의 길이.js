@@ -1,3 +1,3 @@
 function solution(strlist) {
-    return strlist.map((x) => x.length);
+    return strlist.reduce((a, b) => [...a, b.length], []);
 }

@@ -1,22 +1,28 @@
 function solution(array) {
-  if (array.length === 0) {
-    return -1;
-  }
-    
-  const frequencyMap = array.reduce((acc, num) => {
-    acc[num] = (acc[num] || 0) + 1;
-    return acc;
-  }, {});
+  let arr = [];
+  let cnt = 1;
+  let many = 0;
 
-  let maxFrequency = 0;
-  let modes = [];
-  for (const num in frequencyMap) {
-    if (frequencyMap[num] > maxFrequency) {
-      maxFrequency = frequencyMap[num];
-      modes = [parseInt(num)];
-    } else if (frequencyMap[num] === maxFrequency) {
-      modes.push(parseInt(num));
+  array.sort((a, b) => a-b);
+  
+  if(array.length === 1) return array[0];
+  
+  for(let i=0; i<array.length-1; i++) {
+    if(array[i]!==array[i+1]) {
+      arr.push(cnt);
+      if(Math.max(...arr) === cnt) many = array[i];
+      cnt = 1;
+    } else {
+      cnt++;
+    }
+    
+    if(i+1 === array.length-1) {
+      arr.push(cnt);
+      if(Math.max(...arr) === cnt) many = array[i];
     }
   }
-  return modes.length > 1 ? -1 : modes[0];
+  
+  let max = Math.max(...arr);
+  
+  return arr.indexOf(max) !== arr.lastIndexOf(max) ? -1 : many;
 }

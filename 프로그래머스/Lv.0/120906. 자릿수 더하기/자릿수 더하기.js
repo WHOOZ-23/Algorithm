@@ -1,3 +1,3 @@
 function solution(n) {    
-    return n.toString().split("").reduce((a, b) => a + parseInt(b), 0);
+    return Array.from(n.toString()).reduce((a, b) => a + Number(b), 0);
 }

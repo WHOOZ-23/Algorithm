@@ -1,8 +1,5 @@
 function solution(numbers) {
-    numbers.sort((a, b) => a-b);
-    let max1 = numbers[0]*numbers[1];
-    numbers.sort((a, b) => b-a);
-    let max2 = numbers[0]*numbers[1];
-    
-    return max1 > max2 ? max1 : max2;
+    let len = numbers.length;
+    numbers.sort((a, b) => a - b);
+    return Math.max(numbers[0]*numbers[1], numbers[len-1]*numbers[len-2]);
 }

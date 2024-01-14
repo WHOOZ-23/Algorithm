@@ -1,3 +1,8 @@
 function solution(hp) {
-    return ~~(hp/5) + ~~((hp%5)/3) + ~~((hp%5)%3);
+    let attack = [5, 3, 1];
+    let ant = [];
+    
+    attack.map((x) => {ant.push(~~(hp/x)); hp%=x;})
+  
+    return ant.reduce((a, b) => a+b);
 }

@@ -1,9 +1,3 @@
 function solution(n) {
-    let cnt = 0;
-    
-    for(let i=1; i<=n; i++) {
-        if(n%i===0) cnt++;
-    }
-    
-    return cnt;
+    return Array(n).fill(1).map((x, i) => x+i).filter((y) => n%y===0).length;
 }

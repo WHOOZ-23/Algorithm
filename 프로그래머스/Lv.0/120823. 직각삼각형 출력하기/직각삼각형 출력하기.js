@@ -9,7 +9,7 @@ let input = [];
 rl.on('line', function (line) {
     input = line.split(' ');
 }).on('close', function () {
-    for(let i=1; i<=input[0]; i++) {
-        console.log("*".repeat(i));
-    }
+    let t = Array.from({length:input[0]}).fill("*").map((x, i) => x.repeat(i+1)).join("\n");
+    
+    console.log(t);
 });

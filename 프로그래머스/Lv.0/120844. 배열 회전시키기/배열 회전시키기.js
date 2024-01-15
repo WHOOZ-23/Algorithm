@@ -1,14 +1,10 @@
 function solution(numbers, direction) {
-    let temp;
-    
     switch(direction) {
         case "right" :
-            temp = numbers.pop();
-            numbers.unshift(temp);
+            numbers.unshift(numbers.pop());
             return numbers;
         case "left" :
-            temp = numbers.shift();
-            numbers.push(temp);
+            numbers.push(numbers.shift());
             return numbers;
     }
 }

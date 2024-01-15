@@ -1,3 +1,3 @@
 function solution(box, n) {
-    return box.map((x) => ~~(x/n)).reduce((a, b) => (a, a*b), 1);
+    return box.reduce((a, b) => a * ~~(b/n), 1);
 }

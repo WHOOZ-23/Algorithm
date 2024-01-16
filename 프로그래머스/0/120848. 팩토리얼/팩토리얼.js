@@ -1,11 +1,11 @@
+function factorial(num) {
+    return num<=1 ? 1 : num*factorial(num-1);
+}
+
 function solution(n) {
-    let result = 1;
-    for(let i=1; i<=10; i++) {
-        result *= i;
-        if(result > n) {
-          return i-1;
-        } else if(result === n) {
-          return i;
-        }
+    let i = 1;
+    while(factorial(i)<=n) {
+       i++; 
     }
+    return i-1;
 }

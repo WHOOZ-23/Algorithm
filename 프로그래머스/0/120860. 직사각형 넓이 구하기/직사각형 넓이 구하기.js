@@ -1,10 +1,6 @@
 function solution(dots) {
-    let x = [], y = [];
+    let x = [...new Set(dots.map((dot) => dot[0]))];
+    let y = [...new Set(dots.map((dot) => dot[1]))];
   
-    for(let dot of dots) {
-        x.push(dot[0]);
-        y.push(dot[1]);
-    }
-  
-    return (Math.max(...x)-Math.min(...x)) * (Math.max(...y)-Math.min(...y));
+    return Math.abs((x[0]-x[1]) * (y[0]-y[1]))
 }

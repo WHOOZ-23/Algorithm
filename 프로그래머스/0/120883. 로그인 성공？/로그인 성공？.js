@@ -1,3 +1,6 @@
-function solution(id_pw, db) {  
-    return db.some((x) => x[0]===id_pw[0]) ? (db.some((x) => x[0]===id_pw[0] && x[1]===id_pw[1]) ? "login" : "wrong pw") : "fail";
+function solution(id_pw, db) {
+    const [id, pw] = id_pw;
+    const map = new Map(db);
+    
+    return map.has(id) ? (map.get(id) === pw ? 'login' : 'wrong pw') : 'fail';
 }

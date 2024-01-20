@@ -1,3 +1,4 @@
 function solution(num, total) {
-    return Array(num).fill().map((x, i) => i+Math.ceil(total/num)-~~(num/2));
+    const a = ((2*total/num)-num+1)/2;
+    return Array(num).fill().map((_, i) => i+a);
 }

@@ -1,5 +1,3 @@
 function solution(my_string, overwrite_string, s) {
-    let arr = my_string.split("");
-    arr.splice(s, overwrite_string.length, overwrite_string);
-    return arr.join("")
+    return my_string.substr(0, s) + overwrite_string + my_string.substr(overwrite_string.length+s);
 }

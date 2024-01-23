@@ -9,6 +9,7 @@ public class Main {
 		int M = scanner.nextInt();
 		int[] arr = new int[N];
 		int max = 0;
+		int result = 0;
 		
 		for(int i=0; i<N; i++) {
 			arr[i] = scanner.nextInt();
@@ -17,15 +18,10 @@ public class Main {
 		for(int j=0; j<N-2; j++) {
 			for(int k=j+1; k<N-1; k++) {
 				for(int l=k+1; l<N; l++) {
-					int result = arr[j] + arr[k] + arr[l];
+					result = arr[j] + arr[k] + arr[l];
 					
-					if(result==M) {
-						max = result;
-						break;
-					}
-					
-					if(max<result && result<M) {
-						max = result;
+					if(result<=M) {
+						max = Math.max(max, result);
 					}
 				}
 			}

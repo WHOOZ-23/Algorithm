@@ -1,9 +1,4 @@
 function solution(arr, queries) {
-    const switches = ([i, j]) => {
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-        return arr;
-    }
-    
-    queries.map((x) => switches(x));
+    queries.forEach(([x, y]) => [arr[x], arr[y]] = [arr[y], arr[x]]);
     return arr;
 }

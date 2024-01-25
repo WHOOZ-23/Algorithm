@@ -6,11 +6,5 @@ const control = {
 }
 
 function solution(numLog) {
-    let arr = [];
-    
-    for(let i=0; i<numLog.length-1; i++) {
-        arr.push(numLog[i+1]-numLog[i]);
-    }
-    
-    return arr.reduce((a, b) => a+control[b], "");
+    return numLog.slice(1).map((x, i) => control[x-numLog[i]]).join("");
 }

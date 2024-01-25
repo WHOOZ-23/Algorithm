@@ -1,8 +1,10 @@
+const controlNum = {
+    "w": n => n+1,
+    "s": n => n-1,
+    "d": n => n+10,
+    "a": n => n-10,
+}
+
 function solution(n, control) {
-    return [...control].reduce((a, b) => {
-        if(b==="w") return n+=1;
-        if(b==="s") return n-=1;
-        if(b==="d") return n+=10;
-        if(b==="a") return n-=10;
-    }, n)
+    return [...control].reduce((a, b) => controlNum[b](a), n)
 }

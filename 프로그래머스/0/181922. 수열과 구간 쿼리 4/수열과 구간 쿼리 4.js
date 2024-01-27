@@ -1,8 +1,8 @@
 function solution(arr, queries) {
-    queries.forEach(([s, e, k]) => {
+    return queries.reduce((a, [s, e, k]) => {
         for(let i=s; i<=e; i++) {
-            if(i%k===0) arr[i]++;
+            if (i%k===0) a[i]++;
         }
-    })
-    return arr;
+        return a;
+    }, [...arr]);
 }

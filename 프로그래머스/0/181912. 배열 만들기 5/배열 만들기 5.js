@@ -1,3 +1,3 @@
 function solution(intStrs, k, s, l) {
-    return intStrs.map((x) => +([...x].splice(s, l).join(""))).filter((x) => x>k);
+    return intStrs.map((x) => +x.slice(s, s+l)).filter((x) => x>k);
 }

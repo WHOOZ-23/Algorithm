@@ -1,4 +1,3 @@
 function solution(arr) {
-    const result = arr.slice(arr.indexOf(2), arr.lastIndexOf(2)+1);
-    return result.length ? result : [-1];
+    return arr.indexOf(2)===-1 ? [-1] : arr.slice(arr.indexOf(2), arr.lastIndexOf(2)+1);
 }

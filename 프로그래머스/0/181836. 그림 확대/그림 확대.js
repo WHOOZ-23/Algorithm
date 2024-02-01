@@ -3,7 +3,7 @@ function solution(picture, k) {
     
     picture.forEach((x) => {
         for(let i=0; i<k; i++) {
-            result.push(x.split("").map((y) => y.repeat(k)).join(""));
+            result.push([...x].reduce((a, b) => a+b.repeat(k), ""));
         }
     })
     

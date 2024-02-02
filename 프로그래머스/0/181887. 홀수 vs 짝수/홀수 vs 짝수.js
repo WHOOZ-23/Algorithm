@@ -1,5 +1,7 @@
 function solution(num_list) {
-    const odd = num_list.reduce((a, b, i) => i%2 ? a+b : a, 0);
-    const even = num_list.reduce((a, b, i) => i%2 ? a : a+b, 0);
+    let odd = 0, even = 0;
+    
+    num_list.map((x, i) => i%2 ? odd+=x : even+=x);
+    
     return Math.max(odd, even);
 }

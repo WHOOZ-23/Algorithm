@@ -1,3 +1,3 @@
 function solution(myString) {
-    return [...myString.toLowerCase()].map((x) => x==='a' ? x.toUpperCase() : x).join("");
+    return myString.toLowerCase().replaceAll('a', 'A');
 }

@@ -1,3 +1,3 @@
 function solution(my_string) {
-    return my_string.split(" ").filter((x) => x);
+    return my_string.match(/[^\s]+/g);
 }

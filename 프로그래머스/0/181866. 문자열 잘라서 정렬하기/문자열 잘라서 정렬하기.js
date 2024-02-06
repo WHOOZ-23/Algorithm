@@ -1,3 +1,3 @@
 function solution(myString) {
-    return myString.match(/[^x]+/g).sort();
+    return myString.split("x").filter((x) => x).sort();
 }

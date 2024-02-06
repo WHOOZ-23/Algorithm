@@ -1,3 +1,3 @@
 function solution(myString, pat) {
-    return +(myString.includes([...pat].map((x) => x==='A' ? 'B' : 'A').join("")));
+    return +([...myString].map((x) => x==='A' ? 'B' : 'A').join("").includes(pat));
 }

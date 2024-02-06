@@ -1,3 +1,3 @@
 function solution(strArr) {
-    return strArr.filter((x) => !x.includes("ad"));
+    return strArr.filter((x) => x.indexOf("ad") === -1);
 }

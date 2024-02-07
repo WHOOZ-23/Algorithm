@@ -4,5 +4,13 @@ function solution(arr1, arr2) {
     const sum1 = arr1.reduce((a, b) => a+b);
     const sum2 = arr2.reduce((a, b) => a+b);
     
-    return length1>length2 ? 1 : (length1<length2 ? -1 : (sum1<sum2 ? -1 : (sum1>sum2 ? 1 : 0)))
+    if(length1 > length2) return 1;
+    else {
+        if(length1 < length2) return -1;
+        else {
+            if(sum1 < sum2) return -1;
+            else if(sum1 > sum2) return 1;
+            else return 0;
+        }
+    }
 }

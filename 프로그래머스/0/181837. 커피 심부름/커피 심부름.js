@@ -1,3 +1,3 @@
 function solution(order) {
-    return order.reduce((a, b) => b.includes("cafelatte") ? a+5000 : a+4500, 0);
+    return order.reduce((a, b) => a+(b.includes("cafelatte") ? 5000 : 4500), 0);
 }

@@ -1,6 +1,3 @@
 function solution(board, k) {
-    let arr = [];
-    board.map((x, i) => x.filter((y, j) => i+j<=k ? arr.push(y) : 0));
-    
-    return arr.reduce((a, b) => a+b);
+    return board.reduce((a, b, i) => i<=k ? a+b.reduce((c, d, j) => i+j<=k ? c+d : c) : a, 0)
 }

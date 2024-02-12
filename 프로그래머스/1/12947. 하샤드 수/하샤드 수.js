@@ -1,3 +1,3 @@
 function solution(x) {
-    return x%[...x.toString()].reduce((a, b) => +a + +b) ? false : true;
+    return !(x%[...x.toString()].reduce((a, b) => +a + +b));
 }

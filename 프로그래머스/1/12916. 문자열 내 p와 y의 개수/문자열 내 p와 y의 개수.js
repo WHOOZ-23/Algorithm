@@ -1,7 +1,3 @@
 function solution(s) {
-    let p = 0, y = 0;
-    
-    [...s.toLowerCase()].map((x) => x==="p" ? p++ : (x==="y" ? y++ : 0));
-    
-    return p===y;
+    return [...s.toLowerCase()].reduce((a, b) => b==="p" ? a+1 : (b==="y" ? a-1 : a), 0) ? false : true;
 }

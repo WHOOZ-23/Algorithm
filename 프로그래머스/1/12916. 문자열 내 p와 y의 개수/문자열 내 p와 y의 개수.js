@@ -1,3 +1,3 @@
 function solution(s) {
-    return [...s.toLowerCase()].reduce((a, b) => b==="p" ? a+1 : (b==="y" ? a-1 : a), 0) ? false : true;
+    return s.toLowerCase().split("p").length === s.toLowerCase().split("y").length;
 }

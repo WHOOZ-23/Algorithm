@@ -1,3 +1,4 @@
 function solution(price, money, count) {
-    return count*(price+price*count)/2 > money ? count*(price+price*count)/2 - money : 0;
+    const need = count*(price+price*count)/2 - money;
+    return need>0 ? need : 0;
 }

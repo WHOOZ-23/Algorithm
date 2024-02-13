@@ -1,3 +1,3 @@
 function solution(n) {
-    return Array.from({length:n}, (_, i) => i%2 ? "박" : "수").join("");
+    return "수박".repeat(n/2) + (n%2 ? "수" : "");
 }

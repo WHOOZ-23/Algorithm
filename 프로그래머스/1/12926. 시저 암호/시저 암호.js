@@ -1,15 +1,6 @@
 function solution(s, n) {
     return [...s].map((x) => {
-        if(x.codePointAt()===32) return x;
-        if(65<=x.codePointAt() && x.codePointAt()<=90) {
-            if(x.codePointAt()+n>90) {
-                return String.fromCharCode(x.codePointAt()-26+n);
-            }
-        } else if(97<=x.codePointAt() && x.codePointAt()<=122) {
-            if(x.codePointAt()+n>122) {
-                return String.fromCharCode(x.codePointAt()-26+n);
-            }
-        } 
-        return String.fromCharCode(x.codePointAt()+n);
+        if(x===" ") return x;
+        return String.fromCharCode((x.charCodeAt()>90) ? (x.charCodeAt()+n-97)%26+97 : (x.charCodeAt()+n-65)%26+65)
     }).join("");
 }

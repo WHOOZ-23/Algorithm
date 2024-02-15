@@ -1,4 +1,4 @@
 function solution(sizes) {
-    sizes.map((x) => x.sort((a, b) => a-b));
-    return Math.max(...sizes.map((x) => x[0])) * Math.max(...sizes.map((x) => x[1]));
+    const [width, height] = sizes.reduce(([w, h], [a, b]) => [Math.max(w, Math.min(a, b)), Math.max(h, Math.max(a, b))], [0, 0]);
+    return width*height;
 }

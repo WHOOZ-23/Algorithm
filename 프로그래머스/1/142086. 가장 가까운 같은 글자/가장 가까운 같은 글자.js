@@ -1,15 +1,9 @@
 function solution(s) {
-    const letter = {};
-    let arr = Array(s.length).fill(-1);
-    
-    [...s].forEach((x, i) => {
-        if(Object.keys(letter).includes(x)) {
-            arr[i] = i - letter[x];
-            letter[x] = i;
-        } else {
-            letter[x] = s.indexOf(x);
-        }
+    const hash={};
+
+    return [...s].map((v,i)=>{
+        let result = hash[v] !== undefined ? i - hash[v] : -1;
+        hash[v] = i;
+        return result;
     });
-    
-    return arr;
 }

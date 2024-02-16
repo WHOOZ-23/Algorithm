@@ -1,9 +1,6 @@
 function solution(s) {
-    const hash={};
-
-    return [...s].map((v,i)=>{
-        let result = hash[v] !== undefined ? i - hash[v] : -1;
-        hash[v] = i;
-        return result;
-    });
+   return [...s].map((x, i) => {
+       const count = s.slice(0, i).lastIndexOf(x);
+       return count < 0 ? count : i - count;
+   })
 }

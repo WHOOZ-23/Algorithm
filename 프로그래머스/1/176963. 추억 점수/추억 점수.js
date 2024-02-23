@@ -1,7 +1,3 @@
-function solution(name, yearning, photo) {
-    const score = {}
-    
-    name.map((x, i) => score[x]=yearning[i]);
-    
-    return photo.map((x) => x.reduce((a, b) => Object.keys(score).includes(b) ? a+score[b] : a, 0));
+function solution(name, yearning, photo) {  
+    return photo.map((x) => x.reduce((a, b) => name.includes(b) ? a+yearning[name.indexOf(b)] : a, 0));
 }

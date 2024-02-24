@@ -1,20 +1,14 @@
 function solution(k, score) {
-    let arr = [];
-    const queue = (x) => {
-        arr.push(x);
-        arr.sort((a, b) => a-b);
-        
-        if(k<arr.length) {
-            arr.shift();
-        }
-        
-        return arr[0];
-    }
-    let result = [];
+    const queue = [];
     
-    score.map((x, i) => {
-        result.push(queue(x));
-    });
-    
-    return result;
+    return score.reduce((a, b) => {
+        queue.push(b);
+        queue.sort((a, b) => a-b);
+        
+        if(k<queue.length) queue.shift();
+        
+        a.push(queue[0]);
+        
+        return a;
+    }, []);
 }

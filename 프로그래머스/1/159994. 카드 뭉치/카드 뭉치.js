@@ -1,13 +1,8 @@
 function solution(cards1, cards2, goal) {
-    let i = 0, j = 0;
-    return goal.every((x) => {
-        if(i<cards1.length && x===cards1[i]) {
-            i++;
-            return true;
-        } else if(j<cards2.length && x===cards2[j]) {
-            j++;
-            return true;
-        }
-        return false;
-    }) ? "Yes" : "No";
+    for(let g of goal) {
+        if(cards1[0]===g) cards1.shift();
+        else if(cards2[0]===g) cards2.shift();
+        else return "No";
+    }
+    return "Yes";
 }

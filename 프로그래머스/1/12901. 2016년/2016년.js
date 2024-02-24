@@ -1,5 +1,11 @@
 function solution(a, b) {
-    const week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    const monthDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const week = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"];
+    let days = b;
     
-    return week[new Date(`2016-${a}-${b}`).getDay()];
+    for(let i=0; i<a-1; i++) {
+        days+=monthDays[i];
+    }
+    
+    return week[days%7];
 }

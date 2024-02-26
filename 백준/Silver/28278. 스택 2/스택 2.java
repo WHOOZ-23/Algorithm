@@ -1,20 +1,23 @@
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = scanner.nextInt();
+        int N = Integer.parseInt(br.readLine());
         Stack<Integer> stack = new Stack<>();
         StringBuilder sb = new StringBuilder();
 
         for(int i=0; i<N; i++) {
-            int M = scanner.nextInt();
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int M = Integer.parseInt(st.nextToken());
 
             switch (M) {
                 case 1 :
-                    stack.push(scanner.nextInt());
+                    stack.push(Integer.parseInt(st.nextToken()));
                     break;
                 case 2 :
                     if(stack.isEmpty()) {
@@ -45,6 +48,6 @@ public class Main {
 
         System.out.println(sb.toString());
 
-        scanner.close();
+        br.close();
     }
 }

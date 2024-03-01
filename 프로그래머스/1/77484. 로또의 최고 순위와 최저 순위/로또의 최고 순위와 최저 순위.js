@@ -5,18 +5,12 @@ function solution(lottos, win_nums) {
     
     lottos.map((x) => {
         win_nums.map((y) => {
-            if(x===y) lowest++;
-        });
-    });
-    
-    lottos.map((x, i) => {
-        win_nums.map((y) => {
-            if(x===0 && !lottos.includes(y)) {
-                x = y;
+            if(x===y) {
+                lowest++; 
+                highest++;
             }
-            
-            if(x===y) highest++;
         });
+            if(x===0) highest++;
     });
     
     return [win[highest], win[lowest]];

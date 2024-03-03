@@ -1,16 +1,13 @@
 function solution(participant, completion) {
-    let hashMap = new Map();
+    let result = {};
     
     participant.forEach((x) => {
-        if(hashMap.has(x)) hashMap.set(x, hashMap.get(x)+1);
-        else hashMap.set(x, 1);
+        result[x] = (result[x]+1 || 1);
     });
     
     completion.forEach((x) => {
-        hashMap.set(x, hashMap.get(x)-1);
+        result[x] = result[x]-1;
     });
     
-    for(let [key, value] of hashMap) {
-        if(value===1) return key;
-    }
+    return Object.keys(result).find((key) => result[key]===1);
 }

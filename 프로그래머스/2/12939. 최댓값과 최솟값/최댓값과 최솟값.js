@@ -1,4 +1,3 @@
 function solution(s) {
-    let arr = s.split(" ");
-    return [Math.min(...arr), Math.max(...arr)].join(" ");
+    return [Math.min(...s.split(" ")), Math.max(...s.split(" "))].join(" ");
 }

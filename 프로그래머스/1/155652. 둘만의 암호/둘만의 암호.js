@@ -1,20 +1,5 @@
 function solution(s, skip, index) {
-    let str = '';
+    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"].filter((x) => !skip.includes(x));
     
-    for(let i=0; i<s.length; i++) {
-        let char = s.charCodeAt(i);
-        for(let j=0; j<index; j++) {
-            char+=1;
-            
-            if(122<char) char-=26;
-            
-            while(skip.includes(String.fromCharCode(char))) {
-                char+=1;
-                if(122<char) char-=26;
-            }
-        }
-        str += String.fromCharCode(char);
-    }
-    
-    return str;
+    return [...s].map((x) => alphabet[(alphabet.indexOf(x)+index) % alphabet.length]).join("");
 }

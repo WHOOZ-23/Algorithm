@@ -1,17 +1,13 @@
 function solution(new_id) {
     new_id = new_id
         .toLowerCase()
-        .replace(/[^\-|\_|\.|\w]/g, "")
-        .replace(/\.+/g, ".")
-        .replace(/(^\.|\.$)/g, "");
+        .replace(/[^\w-_.]/g, '')
+        .replace(/\.+/g, '.')
+        .replace(/(^\.|\.$)/g, '')
+        .replace(/^$/, 'a')
+        .slice(0, 15).replace(/(^\.|\.$)/g, '');
     
-    if(new_id.length===0) new_id+="a";
+    const len = new_id.length;
     
-    new_id = new_id.split("").filter((_, i) => i<15).join("").replace(/(^\.|\.$)/g, "");
-    
-    while(new_id.length<3) {
-        new_id+=new_id[new_id.length-1];
-    }
-    
-    return new_id;
+    return len < 3 ? new_id + new_id[len-1].repeat(3-len) : new_id;
 }

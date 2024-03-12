@@ -1,11 +1,14 @@
 function solution(s){
     let result = 0;
     
+    if(s[0]===')') return false;
+    
     for(let c of s) {
-        result += (c==='(' ? 1 : -1);
-        
         if(result<0) return false;
+        
+        if(c==='(') result++;
+        if(c===')') result--;
     }
     
-    return result===0 ? true : false;
+    return !result;
 }

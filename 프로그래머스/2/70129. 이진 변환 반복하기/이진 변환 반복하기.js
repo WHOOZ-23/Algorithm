@@ -6,8 +6,7 @@ function solution(s) {
         [...s].forEach((x) => {
             if(x==='0') zero++;
         });
-        s=s.replaceAll(0, '');
-        s=s.length.toString(2);
+        s=s.replaceAll(0, '').length.toString(2);
         cnt++;
     }
     

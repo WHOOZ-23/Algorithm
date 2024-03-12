@@ -1,14 +1,13 @@
 function solution(s) {
-    let cnt = 0;
-    let zero = 0;
+    let result = [0, 0];
     
-    while(s.length!==1 && s[0]!==1) {
+    while(s.length>1) {
         [...s].forEach((x) => {
-            if(x==='0') zero++;
+            if(x==='0') result[1]++;
         });
         s=s.replaceAll(0, '').length.toString(2);
-        cnt++;
+        result[0]++;
     }
     
-    return [cnt, zero];
+    return result;
 }

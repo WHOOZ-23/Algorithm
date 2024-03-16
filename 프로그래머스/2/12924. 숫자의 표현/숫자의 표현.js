@@ -1,22 +1,8 @@
 function solution(n) {
-    let sum = 0;
-    let cnt = 1;
+    let cnt = 0;
     
-    for(let i=1; i<=Math.ceil(n/2); i++) {
-        for(let j=i; j<n; j++) {
-            sum += j;
-            
-            if(n<sum) {
-                sum = 0;
-                break;
-            }
-            
-            if(sum===n) {
-                cnt++;
-                sum = 0;
-                break;
-            }
-        }
+    for(let i=1; i<=n; i++) {
+        if((n%i===0) && (i%2===1)) cnt++;
     }
     
     return cnt;

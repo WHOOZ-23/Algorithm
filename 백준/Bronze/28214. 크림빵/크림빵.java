@@ -7,15 +7,19 @@ public class Main {
         int N = scanner.nextInt();
         int K = scanner.nextInt();
         int P = scanner.nextInt();
-        int set = 0;
+        int[] bread = new int[N*K];
+        int set = N;
+
+        for(int i=0; i<N*K; i++) {
+            bread[i] = scanner.nextInt();
+        }
 
         for(int i=0; i<N; i++) {
             int cnt = 0;
             for(int j=0; j<K; j++) {
-                int bread = scanner.nextInt();
-                if(bread == 1) cnt++;
+                if(bread[i*K+j] == 0) cnt++;
             }
-            if(P <= cnt) set++;
+            if(P <= cnt) set--;
         }
 
         System.out.println(set);

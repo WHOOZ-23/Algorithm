@@ -1,16 +1,3 @@
-function solution(n) {
-    let n2 = n+1;
-    
-    while(true) {
-        const num = n.toString(2).split("").reduce((a, b) => +a + +b, 0);
-        const num2 = n2.toString(2).split("").reduce((a, b) => +a + +b, 0);
-        
-        if(num === num2) {
-            break;
-        } 
-        
-        n2++;
-    }
-    
-    return n2;
+function solution(n, result = n+1) {    
+    return n.toString(2).match(/1/g).length === result.toString(2).match(/1/g).length ? result : solution(n, result+1);
 }

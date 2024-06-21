@@ -1,7 +1,3 @@
 function solution(n) {
-    if(n%2) {
-        return Array.from({length:n}, (x, i) => i+1).filter((x) => x%2).reduce((a, b) => a+b, 0);
-    } else {
-        return Array.from({length:n}, (x, i) => i+1).filter((x) => x%2===0).reduce((a, b) => a+b*b, 0);
-    }
+    return n%2 ? Array.from({length: Math.ceil(n/2)}, (_, i) => 2*i+1).reduce((a, b) => a+b, 0) : Array.from({length: n/2}, (_, i) => 2*(i+1)).reduce((a, b) => a + Math.pow(b, 2), 0); 
 }

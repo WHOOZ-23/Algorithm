@@ -1,3 +1,17 @@
 function solution(n) {
-    return n%2 ? Array.from({length: Math.ceil(n/2)}, (_, i) => 2*i+1).reduce((a, b) => a+b, 0) : Array.from({length: n/2}, (_, i) => 2*(i+1)).reduce((a, b) => a + Math.pow(b, 2), 0); 
+    let result = 0;
+    
+    if(n%2) {
+        for(let i=1; i<=n; i+=2) {
+            result += i;
+        }
+        
+        return result;
+    } else {
+        for(let i=2; i<=n; i+=2) {
+            result += i*i;
+        }
+        
+        return result;
+    }
 }

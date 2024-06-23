@@ -1,6 +1,8 @@
 function solution(ineq, eq, n, m) {
-    if(ineq === "<" && eq === "=") return n <= m ? 1 : 0;
-    if(ineq === ">" && eq === "=") return n >= m ? 1 : 0;
-    if(ineq === "<" && eq === "!") return n < m ? 1 : 0;
-    if(ineq === ">" && eq === "!") return n >= m ? 1 : 0;
+    const op = ineq + eq;
+    
+    if(op === "<=") return n <= m ? 1 : 0;
+    if(op === ">=") return n >= m ? 1 : 0;
+    if(op === "<!") return n < m ? 1 : 0;
+    if(op === ">!") return n >= m ? 1 : 0;
 }

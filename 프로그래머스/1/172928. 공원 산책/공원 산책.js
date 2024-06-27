@@ -5,52 +5,60 @@ function solution(park, routes) {
         if(y === "S") result = [i, j];
     }));
     
+    const numRows = park.length;
+    const numCols = park[0].length;
+
     for(let i=0; i<routes.length; i++) {
+        const direction = routes[i].split(" ")[0];
         const step = +routes[i].split(" ")[1];
-        let ok = true;
+        
+        let newResult = [...result];
+        let validMove = true;
 
-        if(routes[i].split(" ")[0] === "E" && result[1]+step < park[0].length) {
-            for(let j=result[1]; j<=result[1]+step; j++) {
-                if(park[result[0]][j] === "X") {
-                    ok = false;
-                    break;
+        if(direction === "E") {
+            if(result[1] + step < numCols) {
+                for(let j = result[1] + 1; j <= result[1] + step; j++) {
+                    if(park[result[0]][j] === "X") {
+                        validMove = false;
+                        break;
+                    }
                 }
+                if (validMove) newResult[1] += step;
             }
-            
-            if(ok) result[1] += step;
+        } else if(direction === "W") {
+            if(result[1] - step >= 0) {
+                for(let j = result[1] - 1; j >= result[1] - step; j--) {
+                    if(park[result[0]][j] === "X") {
+                        validMove = false;
+                        break;
+                    }
+                }
+                if (validMove) newResult[1] -= step;
+            }
+        } else if(direction === "S") {
+            if(result[0] + step < numRows) {
+                for(let j = result[0] + 1; j <= result[0] + step; j++) {
+                    if(park[j][result[1]] === "X") {
+                        validMove = false;
+                        break;
+                    }
+                }
+                if (validMove) newResult[0] += step;
+            }
+        } else if(direction === "N") {
+            if(result[0] - step >= 0) {
+                for(let j = result[0] - 1; j >= result[0] - step; j--) {
+                    if(park[j][result[1]] === "X") {
+                        validMove = false;
+                        break;
+                    }
+                }
+                if (validMove) newResult[0] -= step;
+            }
         }
-
-        if(routes[i].split(" ")[0] === "W" && 0 <= result[1]-step) {
-            for(let j=result[1]; result[1]-step<=j; j--) {
-                if(park[result[0]][j] === "X") {
-                    ok = false;
-                    break;
-                }
-            }
-            
-            if(ok) result[1] -= step;
-        }
-
-        if(routes[i].split(" ")[0] === "S" && result[0]+step < park.length) {
-            for(let j=result[0]; j<=result[0]+step; j++) {
-                if(park[j][result[1]] === "X") {
-                    ok = false;
-                    break;
-                }
-            }
-            
-            if(ok) result[0] += step;
-        }
-
-        if(routes[i].split(" ")[0] === "N" && 0 <= result[0]-step) {
-            for(let j=result[0]; result[0]-step<=j; j--) {
-                if(park[j][result[1]] === "X") {
-                    ok = false;
-                    break;
-                }
-            }
-            
-            if(ok) result[0] -= step;
+        
+        if (validMove) {
+            result = newResult;
         }
     }
     

@@ -1,24 +1,19 @@
 function solution(want, number, discount) {
     let answer = 0;
 
-    for (
-        let i = 0;
-        i < discount.length - number.reduce((a, b) => a + b, 0) + 1;
-        i++
-    ) {
-        const wantItems = {};
-        want.forEach((x, i) => (wantItems[x] = number[i]));
+    for (let i = 0; i < discount.length - 9; i++) {
         const discountItems = discount.slice(i, i + 10);
+        let signUp = true;
 
-        discountItems.forEach((x) => {
-            if (wantItems.hasOwnProperty(x) && 0 < wantItems[x]) {
-                wantItems[x]--;
+        for (let j = 0; j < want.length; j++) {
+            if (
+                discountItems.filter((x) => x === want[j]).length !== number[j]
+            ) {
+                signUp = false;
             }
-        });
-
-        if (!Object.values(wantItems).reduce((a, b) => a + b, 0)) {
-            answer++;
         }
+
+        if (signUp) answer++;
     }
 
     return answer;

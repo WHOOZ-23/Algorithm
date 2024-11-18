@@ -1,21 +1,3 @@
 function solution(arr1, arr2) {
-    let result1 = [];
-
-    for (let i = 0; i < arr1.length; i++) {
-        let result2 = [];
-
-        for (let j = 0; j < arr2[0].length; j++) {
-            let sum = 0;
-
-            for (let k = 0; k < arr2.length; k++) {
-                sum += arr1[i][k] * arr2[k][j];
-            }
-
-            result2.push(sum);
-        }
-
-        result1.push(result2);
-    }
-
-    return result1;
+    return arr1.map((x) => arr2[0].map((_, i) => x.reduce((a, b, j) => a + b * arr2[j][i], 0)));
 }

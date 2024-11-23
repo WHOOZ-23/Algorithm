@@ -14,7 +14,7 @@ function solution(cacheSize, cities) {
                 cache.set(city.toUpperCase(), true);
                 time += 5;
             } else if (cache.size === cacheSize) {
-                cache.delete([...cache.keys()][0]);
+                cache.delete(cache.keys().next().value);
                 cache.set(city.toUpperCase(), true);
                 time += 5;
             }

@@ -2,10 +2,10 @@ function solution(cacheSize, cities) {
     const cache = new Map();
     let time = 0;
 
+    if (!cacheSize) return cities.length * 5;
+
     cities.forEach((city) => {
-        if (!cacheSize) {
-            time += 5;
-        } else if (cache.has(city.toUpperCase())) {
+        if (cache.has(city.toUpperCase())) {
             cache.delete(city.toUpperCase());
             cache.set(city.toUpperCase(), true);
             time++;

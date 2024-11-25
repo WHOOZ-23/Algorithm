@@ -1,33 +1,18 @@
 function solution(progresses, speeds) {
-    let answer = [];
+    progresses = progresses.map((progress, i) =>
+        Math.ceil((100 - progress) / speeds[i])
+    );
 
-    while (progresses.length !== 0) {
-        progresses = progresses.map((progress, i) => {
-            if (100 <= progress + speeds[i]) {
-                return (progress = 100);
-            } else {
-                return progress + speeds[i];
-            }
-        });
+    let answer = [0];
+    let day = progresses[0];
+    let index = 0;
 
-        if (progresses[0] === 100) {
-            let cnt = 0;
-
-            for (let i = 0; ; ) {
-                if (progresses[i] === 100) {
-                    cnt++;
-                    progresses.shift();
-                    speeds.shift();
-
-                    if (progresses.length === 0) {
-                        answer.push(cnt);
-                        break;
-                    }
-                } else {
-                    answer.push(cnt);
-                    break;
-                }
-            }
+    for (const progress of progresses) {
+        if (progress <= day) {
+            answer[index] += 1;
+        } else {
+            day = progress;
+            answer[++index] = 1;
         }
     }
 

@@ -1,11 +1,13 @@
 function solution(s) {
-    const answer = {};
-
-    s.replace(/[{}]/g, "")
-        .split(",")
-        .map((x) => (answer[x] = (answer[x] || 0) + 1));
-
-    return Object.entries(answer)
-        .sort((a, b) => b[1] - a[1])
-        .map((x) => +x[0]);
+    return s
+        .slice(1, -1)
+        .split("},{")
+        .map((x) =>
+            x
+                .replace(/[{}]/g, "")
+                .split(",")
+                .map((y) => +y)
+        )
+        .sort((a, b) => a.length - b.length)
+        .reduce((a, b) => [...a, ...b.filter((x) => a.indexOf(x) === -1)], []);
 }

@@ -1,11 +1,14 @@
 function solution(phone_book) {
-    phone_book = phone_book.sort();
+    return !phone_book
+        .sort()
+        .map((phone, i) => {
+            if (i < phone_book.length - 1) {
+                if (phone_book[i + 1].startsWith(phone)) {
+                    return 1;
+                }
+            }
 
-    for (let i = 0; i < phone_book.length - 1; i++) {
-        if (phone_book[i + 1].startsWith(phone_book[i])) {
-            return false;
-        }
-    }
-
-    return true;
+            return 0;
+        })
+        .reduce((a, b) => a + b, 0);
 }

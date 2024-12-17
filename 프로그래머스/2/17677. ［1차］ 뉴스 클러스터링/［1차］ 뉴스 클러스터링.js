@@ -16,6 +16,10 @@ function solution(str1, str2) {
     result1 = result1.filter((x) => /[a-z][A-Z]/gi.test(x));
     result2 = result2.filter((x) => /[a-z][A-Z]/gi.test(x));
 
+    if (result1.length === 0 && result2.length === 0) {
+        return 65536;
+    }
+
     let intersection = 0;
     let union = 0;
 
@@ -30,7 +34,5 @@ function solution(str1, str2) {
 
     union += result2.length;
 
-    const similarity = Math.floor((intersection / union) * 65536);
-
-    return isNaN(similarity) ? 65536 : similarity;
+    return Math.floor((intersection / union) * 65536);
 }

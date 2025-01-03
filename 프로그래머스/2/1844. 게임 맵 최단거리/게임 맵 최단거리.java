@@ -5,7 +5,7 @@ class Solution {
         int[] goal = {maps.length-1, maps[0].length-1};
         Queue<int[]> queue = new LinkedList<>();
         int[] dxs = {0, 0, -1, 1};
-        int[] dys = {1, -1, 0, 0};
+        int[] dys = {-1, 1, 0, 0};
 
         queue.offer(new int[]{0, 0, 1});
 

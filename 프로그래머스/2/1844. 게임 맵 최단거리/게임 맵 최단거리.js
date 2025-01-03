@@ -2,7 +2,7 @@ function solution(maps) {
     const goal = [maps.length - 1, maps[0].length - 1];
     let location = [];
     let dxs = [0, 0, -1, 1];
-    let dys = [1, -1, 0, 0];
+    let dys = [-1, 1, 0, 0];
 
     location.push([0, 0, 1]);
 

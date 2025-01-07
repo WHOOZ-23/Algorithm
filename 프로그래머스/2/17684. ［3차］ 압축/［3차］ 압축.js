@@ -2,24 +2,20 @@ function solution(msg) {
     const dict = Array.from({ length: 26 }, (_, i) =>
         String.fromCharCode(i + 65)
     );
-    const massage = msg.split("");
     const answer = [];
-    let str = "";
 
-    while (massage.length) {
-        let next = "";
+    for (let i = 0; i < msg.length; i++) {
+        let w = msg[i];
+        let c = msg[i + 1];
 
-        str += massage.shift();
-
-        if (massage[0]) {
-            next = str + massage[0];
+        while (dict.includes(w + c)) {
+            i++;
+            w += c;
+            c = msg[i + 1];
         }
 
-        if (dict.includes(str) && !dict.includes(next)) {
-            answer.push(dict.indexOf(str) + 1);
-            dict.push(next);
-            str = "";
-        }
+        answer.push(dict.indexOf(w) + 1);
+        dict.push(w + c);
     }
 
     return answer;

@@ -1,13 +1,13 @@
 function solution(prices) {
-    const answer = Array.from(
-        { length: prices.length },
-        (_, i) => prices.length - i - 1
-    );
+    const answer = Array(prices.length).fill(0);
     const info = [];
 
     for (let i = 0; i < prices.length; i++) {
+        for (const [price, time] of info) {
+            answer[time]++;
+        }
+
         while (info.length && prices[i] < info[info.length - 1][0]) {
-            answer[info[info.length - 1][1]] = i - info[info.length - 1][1];
             info.pop();
         }
 

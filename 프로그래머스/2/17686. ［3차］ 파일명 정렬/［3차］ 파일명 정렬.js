@@ -1,5 +1,5 @@
 function solution(files) {
-    const regex = /^([a-zA-Z\-\.\s]+)|(\d{1,5})|(.*)$/g;
+    const regex = /^([^0-9]+)|(\d{1,5})|(.*)/g;
 
     files = files.sort((a, b) => {
         const file1 = a.toLowerCase().match(regex);

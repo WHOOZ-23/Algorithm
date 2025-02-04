@@ -1,53 +1,49 @@
 function solution(m, n, board) {
     let answer = 0;
-    let arr = [];
-
-    const newBoard = board.map((x) => x.split(""));
+    board = board.map(row => row.split("")); // 문자열을 2차원 배열로 변환
 
     while (true) {
-        const prev = newBoard.map((x) => x.slice());
+        let remove = new Set(); // 제거할 블록 좌표 저장
 
+        // 1. 2x2 블록 찾기
         for (let i = 0; i < m - 1; i++) {
             for (let j = 0; j < n - 1; j++) {
-                const current = newBoard[i][j];
-
+                let char = board[i][j];
                 if (
-                    current === newBoard[i][j + 1] &&
-                    current === newBoard[i + 1][j] &&
-                    current === newBoard[i + 1][j + 1]
+                    char !== "." &&
+                    char === board[i][j + 1] &&
+                    char === board[i + 1][j] &&
+                    char === board[i + 1][j + 1]
                 ) {
-                    arr.push([i, j], [i, j + 1], [i + 1, j], [i + 1, j + 1]);
+                    remove.add(`${i},${j}`);
+                    remove.add(`${i},${j + 1}`);
+                    remove.add(`${i + 1},${j}`);
+                    remove.add(`${i + 1},${j + 1}`);
                 }
             }
         }
 
-        for (const [i, j] of arr) {
-            newBoard[i][j] = ".";
-            answer++;
+        if (remove.size === 0) break; // 더 이상 제거할 블록이 없으면 종료
+        answer += remove.size; // 제거된 블록 수 더하기
+
+        // 2. 블록 제거
+        for (let pos of remove) {
+            let [x, y] = pos.split(",").map(Number);
+            board[x][y] = ".";
         }
 
-        arr = [];
-
-        if (JSON.stringify(prev) === JSON.stringify(newBoard)) {
-            return newBoard.flat().filter((x) => x === ".").length;
-        }
-
+        // 3. 블록 내리기 (열 단위로 진행)
         for (let j = 0; j < n; j++) {
-            for (let i = m - 1; i > 0; i--) {
-                let n = 1;
+            let stack = [];
+            for (let i = 0; i < m; i++) {
+                if (board[i][j] !== ".") stack.push(board[i][j]); // 빈칸이 아닌 블록 저장
+            }
 
-                while (newBoard[i][j] === "." && i > n - 1) {
-                    if (newBoard[i - n][j] !== ".") {
-                        [newBoard[i][j], newBoard[i - n][j]] = [
-                            newBoard[i - n][j],
-                            newBoard[i][j],
-                        ];
-                        break;
-                    }
-
-                    n++;
-                }
+            for (let i = m - 1; i >= 0; i--) {
+                board[i][j] = stack.length ? stack.pop() : "."; // 아래부터 채우기
             }
         }
     }
+
+    return answer;
 }

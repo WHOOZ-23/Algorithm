@@ -1,19 +1,15 @@
 function solution(numbers) {
-    return numbers
-        .map((x) => {
-            x = BigInt(x);
+    return numbers.map((x) => {
+        if (x % 2) {
+            let num = 2;
 
-            if ((x & 1n) === 0n) {
-                return x + 1n;
+            while ((x + 1) % (num * 2) === 0) {
+                num *= 2;
             }
 
-            let bit = 1n;
+            return x + num / 2;
+        }
 
-            while ((x & bit) !== 0n) {
-                bit <<= 1n;
-            }
-
-            return (x | bit) & ~(bit >> 1n);
-        })
-        .map(Number);
+        return x + 1;
+    });
 }

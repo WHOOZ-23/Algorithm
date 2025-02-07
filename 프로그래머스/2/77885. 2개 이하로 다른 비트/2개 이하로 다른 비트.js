@@ -1,20 +1,19 @@
 function solution(numbers) {
-    for (let i = 0; i < numbers.length; i++) {
-        let num = BigInt(numbers[i]);
+    return numbers
+        .map((x) => {
+            x = BigInt(x);
 
-        if ((num & 1n) === 0n || (num & 2n) === 0n) {
-            numbers[i] = num + 1n;
-            continue;
-        }
+            if ((x & 1n) === 0n) {
+                return x + 1n;
+            }
 
-        let index = 2n;
+            let bit = 1n;
 
-        while (((1n << index) & num) !== 0n) {
-            index++;
-        }
+            while ((x & bit) !== 0n) {
+                bit <<= 1n;
+            }
 
-        numbers[i] = (num | (1n << index)) - (1n << (index - 1n));
-    }
-
-    return numbers.map(Number);
+            return (x | bit) & ~(bit >> 1n);
+        })
+        .map(Number);
 }

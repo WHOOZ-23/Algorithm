@@ -4,7 +4,7 @@ function solution(sequence, k) {
     let len = sequence.length + 1;
     let sum = sequence[0];
 
-    while (true) {
+    while (start < sequence.length) {
         if (sum === k && end - start + 1 < len) {
             answer = [start, end];
             len = end - start + 1;
@@ -22,8 +22,6 @@ function solution(sequence, k) {
             sum -= sequence[start];
             start++;
         }
-
-        if (end < start || sequence.length <= start) break;
     }
 
     return answer;

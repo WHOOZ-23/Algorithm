@@ -8,12 +8,8 @@ public class Main {
         int B = sc.nextInt();
         int C = sc.nextInt();
         int breakEvenPoint = 0;
-
-        if(B < C) {
-            breakEvenPoint = A/(C-B) + 1;
-        } else {
-            breakEvenPoint = -1;
-        }
+        
+        breakEvenPoint = B < C ? A/(C-B) + 1 : -1;
 
         System.out.println(breakEvenPoint);
 

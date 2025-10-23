@@ -1,2 +1,3 @@
 def solution(money):
-    return [money // 5500, money % 5500]
+    americano, change = divmod(money, 5500)
+    return [americano, change]

@@ -1,9 +1,8 @@
 def solution(hp):
-    attack = [5, 3, 1]
-    ants = []
+    answer = 0
 
-    for a in attack:
-        ants.append(hp // a)
-        hp %= a
+    for a in [5, 3, 1]:
+        ants, hp = divmod(hp, a)
+        answer += ants
 
-    return sum(ants)
+    return answer

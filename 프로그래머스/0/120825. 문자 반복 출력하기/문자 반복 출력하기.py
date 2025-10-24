@@ -1,7 +1,2 @@
 def solution(my_string, n):
-    answer = ""
-
-    for str in my_string:
-        answer += str * n
-
-    return answer
+    return "".join(str * n for str in my_string)

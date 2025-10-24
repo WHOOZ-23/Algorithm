@@ -1,5 +1,14 @@
+from collections import deque
+
+
 def solution(numbers, direction):
     if direction == 'left':
-        return numbers[1:] + numbers[:1]
+        left_move = deque(numbers)
+        left_move.rotate(-1)
+        
+        return list(left_move)
     elif direction == 'right':
-        return numbers[-1:] + numbers[:-1]
+        right_move = deque(numbers)
+        right_move.rotate(1)
+        
+        return list(right_move)

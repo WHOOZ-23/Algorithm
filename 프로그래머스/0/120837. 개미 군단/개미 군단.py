@@ -1,15 +1,9 @@
 def solution(hp):
-    answer = 0
+    attack = [5, 3, 1]
+    ants = []
 
-    while hp > 0:
-        if hp >= 5:
-            answer += hp // 5
-            hp %= 5
-        elif hp >= 3:
-            answer += hp // 3
-            hp %= 3
-        else:
-            answer += hp
-            hp = 0
+    for a in attack:
+        ants.append(hp // a)
+        hp %= a
 
-    return answer
+    return sum(ants)

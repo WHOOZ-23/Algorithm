@@ -1,2 +1,2 @@
 def solution(array, n):
-    return sorted(array, key=lambda x: (abs(n - x), x))[0]
+    return min(array, key=lambda x: (abs(x - n), x))

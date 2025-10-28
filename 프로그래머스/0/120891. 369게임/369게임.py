@@ -1,2 +1,2 @@
 def solution(order):
-    return len([n for n in str(order) if int(n) > 0 == int(n) % 3])
+    return len([ch for ch in str(order) if ch in "369"])

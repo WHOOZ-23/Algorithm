@@ -1,6 +1,5 @@
-def solution(n, t):
-    while 0 < t:
-        n *= 2
-        t -= 1
+import math
 
-    return n
+
+def solution(n, t):
+    return int(n * math.pow(2, t))

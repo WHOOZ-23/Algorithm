@@ -1,10 +1,10 @@
 # [level 0] 직사각형 넓이 구하기 - 120860 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120860) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120860?language=python3) 
 
 ### 성능 요약
 
-메모리: 33.4 MB, 시간: 0.05 ms
+메모리: 9.02 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 4일 17:37:17
+2025년 10월 30일 15:39:52
 
 ### 문제 설명
 

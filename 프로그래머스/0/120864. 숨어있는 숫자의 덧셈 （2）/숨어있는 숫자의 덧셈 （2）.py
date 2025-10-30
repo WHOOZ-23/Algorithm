@@ -1,5 +1,3 @@
-import re
-
-
 def solution(my_string):
-    return sum(int(num) for num in re.split(r'\D+', my_string) if num != '')
+    num_list = "".join(s if s.isdigit() else ' ' for s in my_string).split()
+    return sum(int(num) for num in num_list)

@@ -6,5 +6,5 @@ def solution(board):
                     for danger_j in range(j-1, j+2):
                         if 0 <= danger_i < len(board) and 0 <= danger_j < len(board[0]) and board[danger_i][danger_j] != 1:
                             board[danger_i][danger_j] = 2
-                            
-    return len([l for k in board for l in k if l == 0])
+
+    return sum(k.count(0) for k in board)

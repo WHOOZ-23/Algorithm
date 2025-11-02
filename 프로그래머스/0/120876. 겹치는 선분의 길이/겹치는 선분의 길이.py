@@ -1,6 +1,3 @@
 def solution(lines):
-    line1 = set(range(lines[0][0], lines[0][1])) & set(range(lines[1][0], lines[1][1]))
-    line2 = set(range(lines[1][0], lines[1][1])) & set(range(lines[2][0], lines[2][1]))
-    line3 = set(range(lines[0][0], lines[0][1])) & set(range(lines[2][0], lines[2][1]))
-
-    return len(line1 | line2 | line3)
+    line_list = [set(range(line[0], line[1])) for line in lines]
+    return len(line_list[0] & line_list[1] | line_list[1] & line_list[2] | line_list[0] & line_list[2])

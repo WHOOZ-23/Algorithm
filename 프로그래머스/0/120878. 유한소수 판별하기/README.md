@@ -1,10 +1,10 @@
 # [level 0] 유한소수 판별하기 - 120878 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120878) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120878?language=python3) 
 
 ### 성능 요약
 
-메모리: 33.4 MB, 시간: 0.07 ms
+메모리: 9.19 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 5일 3:22:13
+2025년 11월 02일 17:05:15
 
 ### 문제 설명
 

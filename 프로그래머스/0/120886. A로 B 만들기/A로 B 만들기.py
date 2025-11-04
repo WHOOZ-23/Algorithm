@@ -1,2 +1,2 @@
 def solution(before, after):
-    return int(sorted(before) == sorted(after))
+    return 1 if sorted(before) == sorted(after) else 0

@@ -4,10 +4,7 @@ import math
 def solution(clothes):
     closet = {}
 
-    for cloth, type in clothes:
-        if type not in closet:
-            closet[type] = []
+    for _, type in clothes:
+        closet[type] = closet.get(type, 1) + 1
 
-        closet[type].append(cloth)
-
-    return math.prod([len(num) + 1 for num in closet.values()]) - 1
+    return math.prod(closet.values()) - 1

@@ -1,13 +1,10 @@
 def solution(s):
-    answer = []
+    answer = 0
 
     for c in s:
-        if c == '(':
-            answer.append(c)
-        else:
-            if len(answer) > 0 and answer[-1] == '(':
-                answer.pop()
-            else:
-                answer.append(c)
+        answer += 1 if c == '(' else -1
+        
+        if answer < 0:
+            return False
 
-    return True if len(answer) == 0 else False
+    return False if answer else True

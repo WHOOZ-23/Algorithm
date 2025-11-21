@@ -1,4 +1,7 @@
 def solution(N, number):
+    if N == number:
+        return 1
+    
     dp = [set() for _ in range(9)]
 
     for i in range(1, 9):

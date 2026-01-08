@@ -1,12 +1,12 @@
 def solution(citations):
     h = 0
 
-    while h <= max(citations):
-        cnt = len(list(filter(lambda x: h <= x, citations)))
+    citations.sort(reverse=True)
 
-        if cnt < h:
+    for i, c in enumerate(citations, start=1):
+        if i <= c:
+            h = i
+        else:
             break
 
-        h += 1
-
-    return h - 1
+    return h

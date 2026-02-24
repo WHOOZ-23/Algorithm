@@ -1,8 +1,13 @@
 def solution(n, lost, reserve):
-    reserved = sorted(filter(lambda x: x not in lost, reserve))
-    lost = sorted(filter(lambda x: x not in reserve, lost))
+    lost = set(lost)
+    reserve = set(reserve)
 
-    for r in reserved:
+    # 겹치는 학생 제거
+    both = lost & reserve
+    lost -= both
+    reserve -= both
+
+    for r in sorted(reserve):
         if r - 1 in lost:
             lost.remove(r - 1)
         elif r + 1 in lost:

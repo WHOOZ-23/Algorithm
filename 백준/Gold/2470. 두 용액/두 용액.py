@@ -2,9 +2,9 @@ n = int(input())
 arr = list(map(int, input().split()))
 arr.sort()
 
+answer = [0, 0]
 left, right = 0, len(arr) - 1
-answer = [arr[left], arr[right]]
-result = abs(arr[left] + arr[right])
+result = float('inf')
 
 while left < right:
     mix = arr[left] + arr[right]

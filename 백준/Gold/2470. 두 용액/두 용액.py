@@ -2,16 +2,16 @@ n = int(input())
 arr = list(map(int, input().split()))
 arr.sort()
 
-answer = [0, 0]
 left, right = 0, len(arr) - 1
-result = float('inf')
+answer = [arr[left], arr[right]]
+result = abs(arr[left] + arr[right])
 
 while left < right:
     mix = arr[left] + arr[right]
 
     if abs(mix) < result:
         result = abs(mix)
-        answer = [arr[left], arr[right]]
+        answer = arr[left], arr[right]
 
     if mix < 0:
         left += 1

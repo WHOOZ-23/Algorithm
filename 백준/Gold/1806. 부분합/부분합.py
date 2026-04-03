@@ -8,13 +8,10 @@ answer = float('inf')
 for right in range(N):
     total += arr[right]
 
-    while left <= right:
-        if S <= total:
-            answer = min(answer, right - left + 1)
-            total -= arr[left]
-            left += 1
-        else:
-            break
+    while S <= total:
+        answer = min(answer, right - left + 1)
+        total -= arr[left]
+        left += 1
 
 
 print(answer if answer != float('inf') else 0)
